@@ -14,8 +14,8 @@ int main(int argc, char **argv)
 
 	const std::string		file_name(argv[1]);
 	const std::string		newfile_name(file_name + ".replace");
-	std::ifstream	original(file_name);
-	std::ofstream 	copy(newfile_name);
+	std::ifstream	original;
+	std::ofstream 	copy;
 
 	if (origin_fopen(original, file_name))
 		return (EXIT_FAILURE);
