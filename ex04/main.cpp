@@ -2,8 +2,8 @@
 #include "fstream"
 
 static int	valid_input(int argc);
-static int origin_fopen(std::ifstream&	original, std::string file_name);
-static int copy_fopen(std::ofstream&	copy, std::string newfile_name);
+static int infile_open(std::ifstream&	original, const std::string& file_name);
+static int outfile_open(std::ofstream&	copy, const std::string& newfile_name);
 
 int main(int argc, char **argv)
 {
@@ -16,11 +16,11 @@ int main(int argc, char **argv)
 	const std::string	substitute;
 
 	std::ifstream	original;
-	if (origin_fopen(original, file_name)) {
+	if (infile_open(original, file_name)) {
 		return (EXIT_FAILURE);
 	}
 	std::ofstream 	copy;
-	if (copy_fopen(copy, newfile_name))
+	if (outfile_open(copy, newfile_name))
 		return (EXIT_FAILURE);
 	return (0);
 }
@@ -35,7 +35,7 @@ static int	valid_input(int argc)
 	return (EXIT_SUCCESS);
 }
 
-static int	origin_fopen(std::ifstream&	original, std::string file_name)
+static int	infile_open(std::ifstream&	original,const std::string& file_name)
 {
 	original.open(file_name);
 	if (!original)
@@ -47,7 +47,7 @@ static int	origin_fopen(std::ifstream&	original, std::string file_name)
 	return (EXIT_SUCCESS);
 }
 
-static int	copy_fopen(std::ofstream&	copy, std::string newfile_name)
+static int	outfile_open(std::ofstream&	copy, const std::string& newfile_name)
 {
 	copy.open(newfile_name);
 	if (!copy)
