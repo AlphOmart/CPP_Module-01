@@ -12,16 +12,33 @@ int main(int argc, char **argv)
 
 	const std::string	file_name(argv[1]);
 	const std::string	newfile_name(file_name + ".replace");
-	const std::string	to_change;
-	const std::string	substitute;
+	const std::string	to_change(argv[2]);
+	const std::string	substitute(argv[3]);
 
 	std::ifstream	original;
-	if (infile_open(original, file_name)) {
+	if (infile_open(original, file_name))
 		return (EXIT_FAILURE);
-	}
 	std::ofstream 	copy;
 	if (outfile_open(copy, newfile_name))
 		return (EXIT_FAILURE);
+
+	std::string	line;
+	std::string	new_line;
+	while (std::getline(original, line))
+	{
+		new_line = "";
+		size_t foundPos = line.find(to_change);
+		if (foundPos != std::string::npos)
+		{
+			new_line += line.substr(0, foundPos) + substitute + line.substr(foundPos + to_change.length());
+			std::cout << new_line << std::endl;
+		}
+		else
+			new_line += line;
+		copy << new_line << std::endl;
+	}
+	original.close();
+	copy.close();
 	return (0);
 }
 
