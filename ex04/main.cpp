@@ -1,11 +1,6 @@
-#include "iostream"
-#include "fstream"
+#include "utils.hpp"
 
 static int	valid_input(int argc);
-static int	infile_open(std::ifstream&	original, const std::string& file_name);
-static int	outfile_open(std::ofstream&	copy, const std::string& newfile_name);
-static void	change_string(std::ifstream& original, std::ofstream& copy,
-						const std::string& to_change, const std::string& substitute);
 
 int main(int argc, char **argv)
 {
@@ -13,7 +8,7 @@ int main(int argc, char **argv)
 		return (EXIT_FAILURE);
 
 	const std::string	file_name(argv[1]);
-	const std::string	newfile_name(file_name + ".replace");
+	const std::string	newfileName(file_name + ".replace");
 	const std::string	to_change(argv[2]);
 	const std::string	substitute(argv[3]);
 
@@ -21,7 +16,7 @@ int main(int argc, char **argv)
 	if (infile_open(original, file_name))
 		return (EXIT_FAILURE);
 	std::ofstream 	copy;
-	if (outfile_open(copy, newfile_name))
+	if (outfile_open(copy, newfileName))
 		return (EXIT_FAILURE);
 	change_string(original, copy, to_change, substitute);
 	original.close();
@@ -33,53 +28,8 @@ static int	valid_input(int argc)
 {
 	if (argc != 4)
 	{
-		std::cerr << "\033[31mUsage : ./<exec> <filename> <string1> <string2>\033[0m" << std::endl;
+		std::cerr << INVALID_INPUT << std::endl;
 		return (EXIT_FAILURE);
 	}
 	return (EXIT_SUCCESS);
-}
-
-static int	infile_open(std::ifstream&	original,const std::string& file_name)
-{
-	original.open(file_name);
-	if (!original)
-	{
-		std::cerr << "\033[31mError : " + file_name + " can't be open !\033[0m" << std::endl;
-		return (EXIT_FAILURE);
-	}
-	std::cout << file_name + " is open" << std::endl;
-	return (EXIT_SUCCESS);
-}
-
-static int	outfile_open(std::ofstream&	copy, const std::string& newfile_name)
-{
-	copy.open(newfile_name);
-	if (!copy)
-	{
-		std::cerr << "\033[31mError : " + newfile_name + " can't be create/open !\033[0m" << std::endl;
-		return (EXIT_FAILURE);
-	}
-	std::cout << newfile_name + " is open" << std::endl;
-	return (EXIT_SUCCESS);
-}
-
-static void	change_string(std::ifstream& original, std::ofstream& copy,
-							const std::string& to_change, const std::string& substitute)
-{
-	std::string	line;
-	std::string	new_line;
-	while (std::getline(original, line))
-	{
-		new_line = "";
-		size_t foundPos = line.find(to_change);
-		if (foundPos != std::string::npos)
-		{
-			new_line += line.substr(0, foundPos) + substitute +
-					line.substr(foundPos + to_change.length());
-			std::cout << new_line << std::endl;
-		}
-		else
-			new_line += line;
-		copy << new_line << std::endl;
-	}
 }
