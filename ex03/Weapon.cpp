@@ -6,5 +6,5 @@ void Weapon::setType (std::string new_name) {
 }
 
 std::string Weapon::getType ( void ) {
-return (this->_name);
+	return (this->_name);
 }
