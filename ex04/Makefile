@@ -1,5 +1,5 @@
 #---COMMON_VAR-----------------------------------
-NAME		=	unnecessary_violence
+NAME		=	sedIsForLosers
 CXX			=	c++
 FLAGS		=	-std=c++98 -Wall -Werror -Wextra -fsanitize=address
 #---PHILO_VAR----------------------------------
