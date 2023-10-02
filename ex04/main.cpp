@@ -2,8 +2,10 @@
 #include "fstream"
 
 static int	valid_input(int argc);
-static int infile_open(std::ifstream&	original, const std::string& file_name);
-static int outfile_open(std::ofstream&	copy, const std::string& newfile_name);
+static int	infile_open(std::ifstream&	original, const std::string& file_name);
+static int	outfile_open(std::ofstream&	copy, const std::string& newfile_name);
+static void	change_string(std::ifstream& original, std::ofstream& copy,
+						const std::string& to_change, const std::string& substitute);
 
 int main(int argc, char **argv)
 {
@@ -21,22 +23,7 @@ int main(int argc, char **argv)
 	std::ofstream 	copy;
 	if (outfile_open(copy, newfile_name))
 		return (EXIT_FAILURE);
-
-	std::string	line;
-	std::string	new_line;
-	while (std::getline(original, line))
-	{
-		new_line = "";
-		size_t foundPos = line.find(to_change);
-		if (foundPos != std::string::npos)
-		{
-			new_line += line.substr(0, foundPos) + substitute + line.substr(foundPos + to_change.length());
-			std::cout << new_line << std::endl;
-		}
-		else
-			new_line += line;
-		copy << new_line << std::endl;
-	}
+	change_string(original, copy, to_change, substitute);
 	original.close();
 	copy.close();
 	return (0);
@@ -74,4 +61,25 @@ static int	outfile_open(std::ofstream&	copy, const std::string& newfile_name)
 	}
 	std::cout << newfile_name + " is open" << std::endl;
 	return (EXIT_SUCCESS);
+}
+
+static void	change_string(std::ifstream& original, std::ofstream& copy,
+							const std::string& to_change, const std::string& substitute)
+{
+	std::string	line;
+	std::string	new_line;
+	while (std::getline(original, line))
+	{
+		new_line = "";
+		size_t foundPos = line.find(to_change);
+		if (foundPos != std::string::npos)
+		{
+			new_line += line.substr(0, foundPos) + substitute +
+					line.substr(foundPos + to_change.length());
+			std::cout << new_line << std::endl;
+		}
+		else
+			new_line += line;
+		copy << new_line << std::endl;
+	}
 }
