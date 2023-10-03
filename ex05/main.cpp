@@ -2,9 +2,12 @@
 
 int main ()
 {
-	std::string coucou = "error";
 	Harl	harl;
 
-	harl.complain(coucou);
+	harl.complain("ERROR");
+	harl.complain("DEBUG");
+	harl.complain("INFO");
+	harl.complain("WARNING");
+
 	return (0);
 }
