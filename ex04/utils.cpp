@@ -2,7 +2,7 @@
 
 int	infile_open(std::ifstream&	original,const std::string& file_name)
 {
-	original.open(file_name);
+	original.open(file_name.c_str());
 	if (!original)
 	{
 		std::cerr << "\033[31mError : " + file_name
@@ -14,7 +14,7 @@ int	infile_open(std::ifstream&	original,const std::string& file_name)
 
 int	outfile_open(std::ofstream&	copy, const std::string& newfile_name)
 {
-	copy.open(newfile_name);
+	copy.open(newfile_name.c_str());
 	if (!copy)
 	{
 		std::cerr << "\033[31mError : " + newfile_name

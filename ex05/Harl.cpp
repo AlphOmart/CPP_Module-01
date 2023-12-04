@@ -1,6 +1,9 @@
 #include "Harl.hpp"
 #include <map>
 
+Harl::Harl(void){};
+Harl::~Harl(void){};
+
 void	Harl::_debug( void )
 {
 	std::cout << DEBUG << std::endl;
@@ -21,18 +24,19 @@ void	Harl::_error( void )
 	std::cout << ERROR << std::endl;
 }
 
-typedef void (Harl::*allcmd)();
-
-void	Harl::complain( std::string level )
+void	Harl::complain(std::string level)
 {
-	std::map<std::string, allcmd> command;
+	std::string comp_list[4] = {"DEBUG", "INFO", "WARNING","ERROR"};
+	void (Harl::*complain[4])() = {&Harl::_debug, &Harl::_info, &Harl::_warning, &Harl::_error};
 
-	command["DEBUG"] = &Harl::_debug;
-	command["INFO"] = &Harl::_info;
-	command["WARNING"] = &Harl::_warning;
-	command["ERROR"] = &Harl::_error;
-	if (command.find(level) != command.end())
-		(this->*command[level])();
-	else
+
+	for (int i = 0; i < 5; i++)
+	{
+		if (comp_list[i] == level)
+		{
+			(this->*complain[i])();
+			return ;
+		}
+	}
 		std::cout << "no complain" << std::endl;
 }

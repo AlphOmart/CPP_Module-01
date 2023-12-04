@@ -1,8 +1,7 @@
 #---COMMON_VAR-----------------------------------
 NAME		=	unnecessary_violence
 CXX			=	c++
-FLAGS		=	-std=c++98 -Wall -Werror -Wextra -fsanitize=address
-#---PHILO_VAR----------------------------------
+FLAGS		=	-std=c++98 -Wall -Werror -Wextra
 SRC			=	main.cpp \
 				Weapon.cpp \
 				HumanA.cpp \
@@ -40,6 +39,7 @@ fclean:			clean
 				@rm -rf $(NAME)
 				@echo "\033[1;32mDone\n"
 
-re:				fclean all
+re:				fclean
+				$(MAKE) all
 
 .PHONY:			all clean fclean re

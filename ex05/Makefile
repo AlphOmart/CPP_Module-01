@@ -1,7 +1,7 @@
 #---COMMON_VAR-----------------------------------
 NAME		=	Harl2_0
 CXX			=	c++
-FLAGS		=	-std=c++98 -Wall -Werror -Wextra -fsanitize=address
+FLAGS		=	-std=c++98 -Wall -Werror -Wextra -g3
 #---PHILO_VAR----------------------------------
 SRC			=	main.cpp \
 				Harl.cpp
@@ -35,6 +35,7 @@ fclean:			clean
 				@rm -rf $(NAME)
 				@echo "\033[1;32mDone\n"
 
-re:				fclean all
+re:				fclean
+				$(MAKE) all
 
 .PHONY:			all clean fclean re

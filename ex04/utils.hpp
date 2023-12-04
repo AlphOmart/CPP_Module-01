@@ -3,7 +3,7 @@
 
 # include "iostream"
 # include "fstream"
-
+# include <cstdlib>
 # define INVALID_INPUT "\033[31mUsage : ./<exec> <filename> <string1> <string2>\033[0m"
 
 int		infile_open(std::ifstream&	original,const std::string& file_name);

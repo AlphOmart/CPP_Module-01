@@ -14,7 +14,6 @@ int main(void)
 	{
 		horde[i].announce();
 	}
-//	alan->~Zombie();
 	delete[] horde;
 	delete alan;
 	return (0);

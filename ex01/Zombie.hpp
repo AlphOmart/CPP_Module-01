@@ -1,25 +1,20 @@
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
+
 #include <iostream>
 
 class  Zombie
 {
 private:
-	std::string name;
+	std::string _name;
 public:
-	Zombie() : name("") {};
-	Zombie(std::string name) : name(name) {};
-	~Zombie() {
-		std::cout << name + " has been deleted" << std::endl;
-	};
+	Zombie(void);
+	Zombie(std::string name);
+	~Zombie();
 
-	void	setName(std::string new_name) {
-		name = new_name;
-	}
-
-	std::string getName() const {
-		return name;
-	}
-
-	void	announce ( void ){
-		std::cout << getName() + ": BraiiiiiiinnnzzzZ" << std::endl;
-	}
+	void		setName(std::string new_name);
+	std::string	getName(void) const;
+	void		announce (void) const;
 };
+
+#endif

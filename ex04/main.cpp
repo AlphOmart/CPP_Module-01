@@ -21,7 +21,7 @@ int main(int argc, char **argv)
 	change_string(original, copy, to_change, substitute);
 	original.close();
 	copy.close();
-	return (0);
+	return (EXIT_SUCCESS);
 }
 
 static int	valid_input(int argc)

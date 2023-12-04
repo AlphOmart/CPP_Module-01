@@ -1,15 +1,20 @@
-#pragma once
+#ifndef WEAPON_HPP
+# define WEAPON_HPP
+
 #include <iostream>
 
 class Weapon
 {
 private:
-	std::string _name;
+	std::string _type;
 
 public:
-	Weapon() : _name(""){};
-	Weapon(std::string name) : _name(name){};
+	Weapon();
+	Weapon(std::string type);
+	~Weapon();
 
 	std::string getType ( void );
-	void setType (std::string new_name);
+	void setType (std::string new_type);
 };
+
+#endif

@@ -1,3 +1,6 @@
+#ifndef HARL_HPP
+# define HARL_HPP
+
 #include <iostream>
 
 # define DEBUG "\033[34m[ DEBUG ]\n\
@@ -21,7 +24,9 @@ private:
 	void	_error( void );
 
 public:
-	Harl(){};
-	~Harl(){};
-	void	complain( std::string level );
+	Harl();
+	~Harl();
+	void	complain(std::string level);
 };
+
+#endif
