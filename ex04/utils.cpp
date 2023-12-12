@@ -1,7 +1,5 @@
 #include "utils.hpp"
 
-#include "../../../../../../../../../Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/stddef.h"
-
 int	infile_open(std::ifstream&	original,const std::string& file_name)
 {
 	original.open(file_name.c_str());

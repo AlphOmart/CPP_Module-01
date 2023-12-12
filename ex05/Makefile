@@ -1,7 +1,7 @@
 #---COMMON_VAR-----------------------------------
 NAME		=	Harl2_0
 CXX			=	c++
-FLAGS		=	-std=c++98 -Wall -Werror -Wextra -g3
+FLAGS		=	-std=c++98 -Wall -Werror -Wextra -g3 #-fsanitize=address
 #---PHILO_VAR----------------------------------
 SRC			=	main.cpp \
 				Harl.cpp

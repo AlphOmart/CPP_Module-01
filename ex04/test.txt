@@ -1,9 +1,0 @@
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Curabitur vehicula ullamcorper commodo. Ut eleifend, nisl vel posuere suscipit,
-turpis turpis ultricies felis, id consectetur lorem est
-condimentum massa. Donec viverra leo id magna auctor mattis. Aliquam sit amet ex
-id mauris dignissim lacinia. Phasellus consequat eros ac aliquet vulputate. Aliquam
-facilisis ut diam sit amet efficitur. Proin ipsum massa, iaculis id nunc ut, porttitor
-pharetra orci. Nam commodo lobortis lobortis. Maecenas neque est, dictum sed tellus ut,
-sollicitudin malesuada leo.
-

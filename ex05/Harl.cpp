@@ -35,6 +35,7 @@ void	Harl::complain(std::string level)
 		if (comp_list[i] == level)
 		{
 			(this->*complain[i])();
+
 			return ;
 		}
 	}
