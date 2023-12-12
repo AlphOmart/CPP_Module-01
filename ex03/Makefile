@@ -16,7 +16,7 @@ HEADER		=	HumanA.hpp \
 
 all:			$(NAME)
 
-$(NAME):		$(OBJS)
+$(NAME):		$(OBJS) $(HEADER)
 				@echo "\033[0;33m\nCOMPILING unnecessary_violence ...\n"
 				@$(CXX) $(FLAGS) $(OBJS) -o $@
 				@echo "\033[1;32m./unnecessary_violence created\n"

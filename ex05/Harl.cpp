@@ -30,7 +30,7 @@ void	Harl::complain(std::string level)
 	void (Harl::*complain[4])() = {&Harl::_debug, &Harl::_info, &Harl::_warning, &Harl::_error};
 
 
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < 4; i++)
 	{
 		if (comp_list[i] == level)
 		{

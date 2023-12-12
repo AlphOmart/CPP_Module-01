@@ -15,7 +15,7 @@ HEADER		=	Zombie.hpp
 
 all:			$(NAME)
 
-$(NAME):		$(OBJS)
+$(NAME):		$(OBJS) $(HEADER)
 				@echo "\033[0;33m\nCOMPILING BraiiiiiiinnnzzzZ...\n"
 				@$(CXX) $(FLAGS) $(OBJS) -o $@
 				@echo "\033[1;32m./BraiiiiiiinnnzzzZ created\n"

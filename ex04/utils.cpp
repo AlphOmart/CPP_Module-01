@@ -1,5 +1,7 @@
 #include "utils.hpp"
 
+#include "../../../../../../../../../Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/stddef.h"
+
 int	infile_open(std::ifstream&	original,const std::string& file_name)
 {
 	original.open(file_name.c_str());
@@ -29,15 +31,20 @@ void	change_string(std::ifstream& original, std::ofstream& copy,
 {
 	std::string	line;
 	std::string	new_line;
+
 	while (std::getline(original, line))
 	{
-		new_line = "";
-		size_t foundPos = line.find(to_change);
-		if (foundPos != std::string::npos)
-			new_line += line.substr(0, foundPos) + substitute +
+		while (42)
+		{
+			size_t foundPos = line.find(to_change);
+			if (foundPos != std::string::npos)
+				line = line.substr(0, foundPos) + substitute +
 						line.substr(foundPos + to_change.length());
-		else
-			new_line += line;
+			else {
+				new_line = line;
+				break ;
+			}
+		}
 		copy << new_line << std::endl;
 	}
 }
