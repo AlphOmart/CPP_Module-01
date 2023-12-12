@@ -28,21 +28,25 @@ void	change_string(std::ifstream& original, std::ofstream& copy,
 					  const std::string& to_change, const std::string& substitute)
 {
 	std::string	line;
+	std::string	get_line;
 	std::string	new_line;
 
-	while (std::getline(original, line))
+	line = "";
+	while (std::getline(original, get_line))
 	{
-		while (42)
-		{
-			size_t foundPos = line.find(to_change);
-			if (foundPos != std::string::npos)
-				line = line.substr(0, foundPos) + substitute +
-						line.substr(foundPos + to_change.length());
-			else {
-				new_line = line;
-				break ;
-			}
-		}
-		copy << new_line << std::endl;
+		line += get_line.substr();
+		line += '\n';
 	}
+	while (42)
+	{
+		size_t foundPos = line.find(to_change);
+		if (foundPos != std::string::npos)
+			line = line.substr(0, foundPos) + substitute +
+					line.substr(foundPos + to_change.length());
+		else {
+			new_line = line;
+			break ;
+		}
+	}
+	copy << new_line << std::endl;
 }

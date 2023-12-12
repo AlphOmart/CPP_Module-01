@@ -1,7 +1,7 @@
 #---COMMON_VAR-----------------------------------
 NAME		=	sedIsForLosers
 CXX			=	c++
-FLAGS		=	-std=c++98 -Wall -Werror -Wextra
+FLAGS		=	-std=c++98 -Wall -Werror -Wextra -glldb
 #---PHILO_VAR----------------------------------
 SRC			=	main.cpp \
 				utils.cpp
