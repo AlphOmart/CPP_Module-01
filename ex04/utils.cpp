@@ -32,6 +32,7 @@ void	change_string(std::ifstream& original, std::ofstream& copy,
 	std::string	new_line;
 
 	line = "";
+	new_line = "";
 	while (std::getline(original, get_line))
 	{
 		line += get_line.substr();
@@ -41,10 +42,12 @@ void	change_string(std::ifstream& original, std::ofstream& copy,
 	{
 		size_t foundPos = line.find(to_change);
 		if (foundPos != std::string::npos)
-			line = line.substr(0, foundPos) + substitute +
-					line.substr(foundPos + to_change.length());
-		else {
-			new_line = line;
+		{
+			new_line += line.substr(0, foundPos) + substitute;
+			line = line.substr(foundPos + to_change.size());
+		}
+			else {
+			new_line += line;
 			break ;
 		}
 	}

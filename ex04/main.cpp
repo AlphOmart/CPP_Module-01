@@ -11,6 +11,7 @@ int main(int argc, char **argv)
 	const std::string	newfileName(file_name + ".replace");
 	const std::string	to_change(argv[2]);
 	const std::string	substitute(argv[3]);
+	std::string			temp;
 
 	std::ifstream	original;
 	if (infile_open(original, file_name))
